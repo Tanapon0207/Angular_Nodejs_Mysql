@@ -7,16 +7,16 @@ const JWT_SECRET = 'your_jwt_secret_key'; // ควรเก็บไว้ใ�
 
 // Register (Create new user)
 exports.register = async (req, res) => {
-    const { firstName, lastName, email, password } = req.body;
+    const { firstname, lastname, email, password } = req.body;
     try {
         // แฮชรหัสผ่านก่อนบันทึก
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const [result] = await pool.query(
             'INSERT INTO users (firstName, lastName, email, password) VALUES (?, ?, ?, ?)',
-            [firstName, lastName, email, hashedPassword]
+            [firstname, lastname, email, hashedPassword]
         );
-        res.status(201).json({ id: result.insertId, firstName, lastName, email });
+        res.status(201).json({ id: result.insertId, firstname, lastname, email });
     } catch (err) {
         res.status(500).json({ message: 'Database error', error: err });
     }

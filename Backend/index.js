@@ -10,10 +10,13 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors({
-    origin: 'http://localhost:4200' // กำหนดให้อนุญาตเฉพาะพอร์ต 4200
-}));
+
+const corsOptions = {
+    origin: 'http://localhost:4200',
+    credentials: true,
+  };
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 // Routes

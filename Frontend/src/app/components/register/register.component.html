@@ -16,29 +16,29 @@
                     </a>
                   </div>
                   <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Enter your details to register</h2>
-                  <form action="#!">
+                  <form (ngSubmit)="register()">
                     <div class="row gy-2 overflow-hidden">
                       <div class="col-12">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" required>
+                          <input type="text" class="form-control" name="firstname" id="firstname" [(ngModel)]="registerObj.firstname" placeholder="First Name" required>
                           <label for="firstName" class="form-label">First Name</label>
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required>
+                          <input type="text" class="form-control" name="lastname" id="lastname" [(ngModel)]="registerObj.lastname" placeholder="Last Name" required>
                           <label for="lastName" class="form-label">Last Name</label>
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="form-floating mb-3">
-                          <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+                          <input type="email" class="form-control" name="email" id="email" [(ngModel)]="registerObj.email" placeholder="name@example.com" required>
                           <label for="email" class="form-label">Email</label>
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="form-floating mb-3">
-                          <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
+                          <input type="password" class="form-control" name="password" id="password" [(ngModel)]="registerObj.password" value="" placeholder="Password" required>
                           <label for="password" class="form-label">Password</label>
                         </div>
                       </div>
@@ -52,7 +52,7 @@
                       </div>
                       <div class="col-12">
                         <div class="d-grid my-3">
-                          <button class="btn btn-primary btn-lg" type="submit">Sign up</button>
+                          <button class="btn btn-primary btn-lg" type="submit" >Sign up</button>
                         </div>
                       </div>
                       <div class="col-12">

@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../../../services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,6 +14,11 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
 
+  constructor(
+    private authService : AuthService
+  ) {
+    
+  }
   router = inject(Router)
   loginObj: any = {
     username: '',
@@ -20,15 +27,17 @@ export class LoginComponent {
 
 
   login(){
-    if(this.loginObj.email == 1 && this.loginObj.password == 1){
-      this.router.navigateByUrl('/dashboard')
-    }else{
-      Swal.fire({
-        title: "Login Failed",
-        text: "Please check your email and password",
-        icon: "error"
-      });
-    }
+
+    
+    // if(this.loginObj.email == 1 && this.loginObj.password == 1){
+    //   this.router.navigateByUrl('/dashboard')
+    // }else{
+    //   Swal.fire({
+    //     title: "Login Failed",
+    //     text: "Please check your email and password",
+    //     icon: "error"
+    //   });
+    // }
 
   }
 
